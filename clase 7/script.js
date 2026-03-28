@@ -1,14 +1,14 @@
 const VOCABULARY = [
-    { word: 'subjects', meaning: 'materias, disciplinas', category: 'default' },
-    { word: 'field', meaning: 'campo', category: 'default' },
-    { word: 'way', meaning: 'manera', category: 'default' },
-    { word: 'grow', meaning: 'crecer', category: 'default' },
-    { word: 'environmental', meaning: 'ambientales', category: 'default' },
-    { word: 'soundscape', meaning: 'paisaje sonoro', category: 'default' },
-    { word: 'deaf', meaning: 'sordera', category: 'default' },
-    { word: 'hearing', meaning: 'audición', category: 'default' },
-    { word: 'listening', meaning: 'escucha', category: 'default' },
-    { word: 'source', meaning: 'fuente', category: 'default' }
+    { word: 'before', meaning: 'antes', category: 'default' },
+    { word: 'after', meaning: 'después', category: 'default' },
+    { word: 'whether', meaning: 'si con', category: 'default' },
+    { word: 'both', meaning: 'ambos', category: 'default' },
+    { word: 'later', meaning: 'más tarde', category: 'default' },
+    { word: 'within', meaning: 'dentro de', category: 'default' },
+    { word: 'nearby', meaning: 'cerca', category: 'default' },
+    { word: 'most', meaning: 'mayoría', category: 'default' },
+    { word: 'instead of', meaning: 'en lugar de', category: 'default' },
+    { word: 'was known', meaning: 'era conocido', category: 'default' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -275,21 +275,22 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'SUBJECTS', x: 1, y: 1, dir: 'across', clue: 'materias, disciplinas' },
-            { word: 'FIELD', x: 3, y: 3, dir: 'across', clue: 'campo' },
-            { word: 'WAY', x: 5, y: 5, dir: 'across', clue: 'manera' },
-            { word: 'GROW', x: 7, y: 7, dir: 'across', clue: 'crecer' },
-            { word: 'ENVIRONMENTAL', x: 9, y: 9, dir: 'across', clue: 'ambientales' },
-            { word: 'SOUNDSCAPE', x: 11, y: 11, dir: 'across', clue: 'paisaje sonoro' },
-            { word: 'DEAF', x: 13, y: 13, dir: 'across', clue: 'sordera' },
-            { word: 'HEARING', x: 15, y: 15, dir: 'across', clue: 'audición' },
-            { word: 'LISTENING', x: 17, y: 17, dir: 'across', clue: 'escucha' },
-            { word: 'SOURCE', x: 19, y: 19, dir: 'across', clue: 'fuente' }
+            { word: 'INSTEADOF', x: 1, y: 5, dir: 'across', clue: 'en lugar de' },
+            { word: 'WASKNOWN', x: 6, y: 1, dir: 'down', clue: 'era conocido' },
+            { word: 'WHETHER', x: 1, y: 1, dir: 'across', clue: 'si (condicional)' },
+            { word: 'BEFORE', x: 8, y: 1, dir: 'down', clue: 'antes' },
+            { word: 'AFTER', x: 6, y: 2, dir: 'across', clue: 'después' },
+            { word: 'WITHIN', x: 6, y: 7, dir: 'across', clue: 'dentro de' },
+            { word: 'NEARBY', x: 11, y: 7, dir: 'down', clue: 'cerca' },
+            { word: 'BOTH', x: 8, y: 1, dir: 'across', clue: 'ambos' },
+            { word: 'LATER', x: 10, y: 1, dir: 'down', clue: 'más tarde' },
+            { word: 'MOST', x: 1, y: 8, dir: 'across', clue: 'mayoría' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

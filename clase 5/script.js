@@ -1,14 +1,16 @@
 const VOCABULARY = [
-    { word: 'pleasant', meaning: 'agradable', category: 'default' },
-    { word: 'facilities', meaning: 'instalaciones', category: 'default' },
-    { word: 'properties', meaning: 'propiedades', category: 'default' },
-    { word: 'should', meaning: 'debería', category: 'default' },
-    { word: 'ensure', meaning: 'asegurar', category: 'default' },
-    { word: 'mistaken', meaning: 'errónea', category: 'default' },
-    { word: 'within', meaning: 'dentro de', category: 'default' },
-    { word: 'unless', meaning: 'a menos que', category: 'default' },
-    { word: 'smear', meaning: 'dispersar', category: 'default' },
-    { word: 'unappealing', meaning: 'poco atractivo', category: 'default' }
+    { word: 'easy', meaning: 'fácil', category: 'default' },
+    { word: 'later', meaning: 'más tarde', category: 'default' },
+    { word: 'few', meaning: 'pocos/as', category: 'default' },
+    { word: 'available', meaning: 'disponible', category: 'default' },
+    { word: 'unavailable', meaning: 'no disponible', category: 'default' },
+    { word: 'never', meaning: 'nunca', category: 'default' },
+    { word: 'such as', meaning: 'tales como', category: 'default' },
+    { word: 'for', meaning: 'para', category: 'default' },
+    { word: 'may', meaning: 'puede que', category: 'default' },
+    { word: 'each', meaning: 'cada', category: 'default' },
+    { word: 'once', meaning: 'una vez', category: 'default' },
+    { word: 'so far', meaning: 'hasta ahora', category: 'default' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -275,21 +277,24 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'PLEASANT', x: 1, y: 1, dir: 'across', clue: 'agradable' },
-            { word: 'FACILITIES', x: 3, y: 3, dir: 'across', clue: 'instalaciones' },
-            { word: 'PROPERTIES', x: 5, y: 5, dir: 'across', clue: 'propiedades' },
-            { word: 'SHOULD', x: 7, y: 7, dir: 'across', clue: 'debería' },
-            { word: 'ENSURE', x: 9, y: 9, dir: 'across', clue: 'asegurar' },
-            { word: 'MISTAKEN', x: 11, y: 11, dir: 'across', clue: 'errónea' },
-            { word: 'WITHIN', x: 13, y: 13, dir: 'across', clue: 'dentro de' },
-            { word: 'UNLESS', x: 15, y: 15, dir: 'across', clue: 'a menos que' },
-            { word: 'SMEAR', x: 17, y: 17, dir: 'across', clue: 'dispersar' },
-            { word: 'UNAPPEALING', x: 19, y: 19, dir: 'across', clue: 'poco atractivo' }
+            { word: 'UNAVAILABLE', x: 1, y: 5, dir: 'across', clue: 'no disponible' },
+            { word: 'AVAILABLE', x: 3, y: 5, dir: 'down', clue: 'disponible' },
+            { word: 'SUCHAS', x: 6, y: 10, dir: 'across', clue: 'tales como' },
+            { word: 'LATER', x: 10, y: 12, dir: 'across', clue: 'más tarde' },
+            { word: 'NEVER', x: 13, y: 9, dir: 'down', clue: 'nunca' },
+            { word: 'EASY', x: 11, y: 5, dir: 'down', clue: 'fácil' },
+            { word: 'EACH', x: 10, y: 6, dir: 'across', clue: 'cada' },
+            { word: 'ONCE', x: 12, y: 4, dir: 'down', clue: 'una vez' },
+            { word: 'SOFAR', x: 11, y: 10, dir: 'down', clue: 'hasta ahora' },
+            { word: 'MAY', x: 2, y: 10, dir: 'across', clue: 'puede que' },
+            { word: 'FOR', x: 11, y: 13, dir: 'across', clue: 'para' },
+            { word: 'FEW', x: 1, y: 1, dir: 'across', clue: 'pocos/as' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

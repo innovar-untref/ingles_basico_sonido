@@ -276,22 +276,23 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'SHOOTINGRANGE', x: 1, y: 1, dir: 'across', clue: 'polígono de tiro' },
-            { word: 'SUCHAS', x: 3, y: 3, dir: 'across', clue: 'tales como' },
-            { word: 'WHO', x: 5, y: 5, dir: 'across', clue: 'quien, el cual' },
-            { word: 'VENUE', x: 7, y: 7, dir: 'across', clue: 'recinto, sitio' },
-            { word: 'AVAILABLE', x: 9, y: 9, dir: 'across', clue: 'disponible' },
-            { word: 'BOTH', x: 11, y: 11, dir: 'across', clue: 'ambos' },
-            { word: 'POLISHED', x: 13, y: 13, dir: 'across', clue: 'lustroso' },
-            { word: 'ENSURING', x: 15, y: 15, dir: 'across', clue: 'asegurando' },
-            { word: 'SOUNDSCAPES', x: 17, y: 17, dir: 'across', clue: 'paisaje sonoro' },
-            { word: 'RESEARCH', x: 19, y: 19, dir: 'across', clue: 'investigación' },
-            { word: 'CODING', x: 21, y: 21, dir: 'across', clue: 'codificación' }
+            { word: 'SHOOTINGRANGE', x: 1, y: 5, dir: 'across', clue: 'polígono de tiro' },
+            { word: 'AVAILABLE', x: 10, y: 5, dir: 'down', clue: 'disponible' },
+            { word: 'SOUNDSCAPES', x: 3, y: 10, dir: 'across', clue: 'paisaje sonoro' },
+            { word: 'ENSURING', x: 13, y: 3, dir: 'down', clue: 'asegurando' },
+            { word: 'POLISHED', x: 6, y: 8, dir: 'across', clue: 'lustroso' },
+            { word: 'CODING', x: 7, y: 7, dir: 'down', clue: 'codificación' },
+            { word: 'SUCHAS', x: 1, y: 5, dir: 'down', clue: 'tales como' },
+            { word: 'WHO', x: 1, y: 8, dir: 'across', clue: 'quien, el cual' },
+            { word: 'VENUE', x: 1, y: 6, dir: 'across', clue: 'recinto, sitio' },
+            { word: 'BOTH', x: 4, y: 4, dir: 'down', clue: 'ambos' },
+            { word: 'RESEARCH', x: 12, y: 7, dir: 'down', clue: 'investigación' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

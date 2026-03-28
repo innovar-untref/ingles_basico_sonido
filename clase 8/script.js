@@ -275,21 +275,22 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'INSTEADOF', x: 1, y: 1, dir: 'across', clue: 'en lugar de' },
-            { word: 'MOST', x: 3, y: 3, dir: 'across', clue: 'la mayoría' },
-            { word: 'WITHIN', x: 5, y: 5, dir: 'across', clue: 'dentro de' },
-            { word: 'NEARBY', x: 7, y: 7, dir: 'across', clue: 'cerca' },
-            { word: 'WASKNOWN', x: 9, y: 9, dir: 'across', clue: 'era conocido' },
-            { word: 'TOGETHER', x: 11, y: 11, dir: 'across', clue: 'juntos' },
-            { word: 'IMPROVED', x: 13, y: 13, dir: 'across', clue: 'mejoró' },
-            { word: 'EACHOTHER', x: 15, y: 15, dir: 'across', clue: 'mutuamente' },
-            { word: 'AVOID', x: 17, y: 17, dir: 'across', clue: 'evitar' },
-            { word: 'WHICH', x: 19, y: 19, dir: 'across', clue: 'cual, lo cual' }
+            { word: 'INSTEADOF', x: 1, y: 5, dir: 'across', clue: 'en lugar de' },
+            { word: 'WASKNOWN', x: 6, y: 1, dir: 'down', clue: 'era conocido' },
+            { word: 'EACHOTHER', x: 2, y: 6, dir: 'across', clue: 'mutuamente' },
+            { word: 'TOGETHER', x: 7, y: 1, dir: 'down', clue: 'juntos' },
+            { word: 'IMPROVED', x: 3, y: 2, dir: 'across', clue: 'mejoró' },
+            { word: 'AVOID', x: 8, y: 1, dir: 'down', clue: 'evitar' },
+            { word: 'WITHIN', x: 5, y: 1, dir: 'across', clue: 'dentro de' },
+            { word: 'NEARBY', x: 10, y: 1, dir: 'down', clue: 'cerca' },
+            { word: 'WHICH', x: 1, y: 1, dir: 'across', clue: 'cual, lo cual' },
+            { word: 'MOST', x: 7, y: 3, dir: 'across', clue: 'la mayoría' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

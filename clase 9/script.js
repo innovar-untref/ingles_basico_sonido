@@ -274,20 +274,21 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'ASITESURVEY', x: 1, y: 1, dir: 'across', clue: 'encuesta' },
-            { word: 'SOTHAT', x: 3, y: 3, dir: 'across', clue: 'de manera que' },
-            { word: 'MEASURES', x: 5, y: 5, dir: 'across', clue: 'medidas' },
-            { word: 'APPROACHES', x: 7, y: 7, dir: 'across', clue: 'enfoques' },
-            { word: 'STUDIOSUITE', x: 9, y: 9, dir: 'across', clue: 'monoambiente' },
-            { word: 'SUBMITAREPORT', x: 11, y: 11, dir: 'across', clue: 'entregar un informe' },
-            { word: 'AVAILABLE', x: 13, y: 13, dir: 'across', clue: 'disponible' },
-            { word: 'HANDHELD', x: 15, y: 15, dir: 'across', clue: 'portátil' },
-            { word: 'HANDHELDSOUNDLEVELMETER', x: 17, y: 17, dir: 'across', clue: 'sonómetro portátil' }
+            { word: 'HANDHELDSOUNDLEVELMETER', x: 1, y: 12, dir: 'across', clue: 'sonómetro portátil' },
+            { word: 'SUBMITAREPORT', x: 10, y: 2, dir: 'down', clue: 'entregar un informe' },
+            { word: 'APPROACHES', x: 7, y: 9, dir: 'across', clue: 'enfoques' },
+            { word: 'STUDIOSUITE', x: 11, y: 5, dir: 'down', clue: 'monoambiente' },
+            { word: 'ASITESURVEY', x: 1, y: 5, dir: 'across', clue: 'encuesta' },
+            { word: 'MEASURES', x: 5, y: 2, dir: 'down', clue: 'medidas' },
+            { word: 'AVAILABLE', x: 1, y: 5, dir: 'down', clue: 'disponible' },
+            { word: 'SOTHAT', x: 8, y: 8, dir: 'across', clue: 'de manera que' },
+            { word: 'HANDHELD', x: 1, y: 1, dir: 'across', clue: 'portátil' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 25;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

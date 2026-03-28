@@ -275,21 +275,22 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'BACKGROUND', x: 1, y: 1, dir: 'across', clue: 'de fondo' },
-            { word: 'PURPOSE', x: 3, y: 3, dir: 'across', clue: 'propósito' },
-            { word: 'AMOUNT', x: 5, y: 5, dir: 'across', clue: 'cantidad' },
-            { word: 'VARIOUS', x: 7, y: 7, dir: 'across', clue: 'diversos' },
-            { word: 'SEVERAL', x: 9, y: 9, dir: 'across', clue: 'varios' },
-            { word: 'THEREFORE', x: 11, y: 11, dir: 'across', clue: 'por lo tanto' },
-            { word: 'MOST', x: 13, y: 13, dir: 'across', clue: 'mayoría' },
-            { word: 'EVEN', x: 15, y: 15, dir: 'across', clue: 'aún' },
-            { word: 'WHILE', x: 17, y: 17, dir: 'across', clue: 'mientras' },
-            { word: 'SHOOTINGRANGE', x: 19, y: 19, dir: 'across', clue: 'polígono de tiro' }
+            { word: 'SHOOTINGRANGE', x: 1, y: 5, dir: 'across', clue: 'polígono de tiro' },
+            { word: 'THEREFORE', x: 5, y: 5, dir: 'down', clue: 'por lo tanto' },
+            { word: 'BACKGROUND', x: 5, y: 11, dir: 'across', clue: 'de fondo' },
+            { word: 'SEVERAL', x: 10, y: 7, dir: 'down', clue: 'varios' },
+            { word: 'VARIOUS', x: 4, y: 9, dir: 'across', clue: 'diversos' },
+            { word: 'PURPOSE', x: 1, y: 14, dir: 'across', clue: 'propósito' },
+            { word: 'WHILE', x: 1, y: 1, dir: 'across', clue: 'mientras' },
+            { word: 'MOST', x: 1, y: 2, dir: 'across', clue: 'mayoría' },
+            { word: 'EVEN', x: 1, y: 3, dir: 'across', clue: 'aún' },
+            { word: 'AMOUNT', x: 1, y: 4, dir: 'across', clue: 'cantidad' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

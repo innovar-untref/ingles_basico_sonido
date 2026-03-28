@@ -608,21 +608,25 @@ h3 {
 }
 
 .grid-layout {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: #333;
+    padding: 2px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: grid !important;
+    gap: 0px !important;
+    border: 2px solid #333;
 }
 
 .grid-cell {
-    width: 25px;
-    height: 25px;
-    border: 1px solid #ddd;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #eee;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     background: white;
+    margin: 0;
 }
 
 .grid-cell input {
@@ -936,7 +940,7 @@ h3 {
     opacity: 1;
     filter: invert(1); /* Fondo blanco, letras negras */
 }
-
+@media (max-width: 768px) {
     .footer-logo-container {
         gap: 1.5rem;
     }

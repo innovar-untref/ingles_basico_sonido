@@ -276,22 +276,23 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'SPOKEN', x: 1, y: 1, dir: 'across', clue: 'hablado/a' },
-            { word: 'EXPLANATIONS', x: 3, y: 3, dir: 'across', clue: 'explicaciones' },
-            { word: 'PHYSICISTS', x: 5, y: 5, dir: 'across', clue: 'físicos' },
-            { word: 'CONTENT', x: 7, y: 7, dir: 'across', clue: 'contenido' },
-            { word: 'DEALSWITH', x: 9, y: 9, dir: 'across', clue: 'trata de' },
-            { word: 'WHILE', x: 11, y: 11, dir: 'across', clue: 'mientras que' },
-            { word: 'DUCTS', x: 13, y: 13, dir: 'across', clue: 'conductos' },
-            { word: 'SOASTO', x: 15, y: 15, dir: 'across', clue: 'para que' },
-            { word: 'ASSESSMENT', x: 17, y: 17, dir: 'across', clue: 'evaluación' },
-            { word: 'SINCE', x: 19, y: 19, dir: 'across', clue: 'puesto que' },
-            { word: 'DAMAGE', x: 21, y: 21, dir: 'across', clue: 'daño' }
+            { word: 'EXPLANATIONS', x: 1, y: 5, dir: 'across', clue: 'explicaciones' },
+            { word: 'PHYSICISTS', x: 12, y: 2, dir: 'down', clue: 'físicos' },
+            { word: 'ASSESSMENT', x: 3, y: 10, dir: 'across', clue: 'evaluación' },
+            { word: 'DEALSWITH', x: 5, y: 6, dir: 'down', clue: 'trata de' },
+            { word: 'CONTENT', x: 8, y: 2, dir: 'down', clue: 'contenido' },
+            { word: 'SPOKEN', x: 6, y: 3, dir: 'across', clue: 'hablado/a' },
+            { word: 'SINCE', x: 11, y: 1, dir: 'down', clue: 'puesto que' },
+            { word: 'WHILE', x: 4, y: 6, dir: 'across', clue: 'mientras que' },
+            { word: 'SOASTO', x: 3, y: 8, dir: 'across', clue: 'para que' },
+            { word: 'DUCTS', x: 1, y: 1, dir: 'across', clue: 'conductos' },
+            { word: 'DAMAGE', x: 1, y: 2, dir: 'across', clue: 'daño' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

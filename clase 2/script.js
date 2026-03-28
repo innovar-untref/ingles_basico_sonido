@@ -274,21 +274,22 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'HEARING', x: 1, y: 1, dir: 'across', clue: 'audiciÃ³n' },
-            { word: 'THUS', x: 3, y: 3, dir: 'across', clue: 'por lo tanto' },
-            { word: 'DISTURBANCES', x: 5, y: 5, dir: 'across', clue: 'alteraciones' },
-            { word: 'LOW', x: 7, y: 7, dir: 'across', clue: 'bajo' },
-            { word: 'HIGH', x: 9, y: 9, dir: 'across', clue: 'alto' },
-            { word: 'SPEECH', x: 11, y: 11, dir: 'across', clue: 'habla' },
-            { word: 'REINFORCEMENT', x: 13, y: 13, dir: 'across', clue: 'refuerzo' },
-            { word: 'MEANS', x: 15, y: 15, dir: 'across', clue: 'medio' },
-            { word: 'RESEARCH', x: 17, y: 17, dir: 'across', clue: 'investigaciÃ³n' },
-            { word: 'SCOPE', x: 19, y: 19, dir: 'across', clue: 'alcance' }
+            { word: 'DISTURBANCES', x: 1, y: 5, dir: 'across', clue: 'alteraciones' },
+            { word: 'REINFORCEMENT', x: 6, y: 1, dir: 'down', clue: 'refuerzo' },
+            { word: 'RESEARCH', x: 1, y: 13, dir: 'across', clue: 'investigación' },
+            { word: 'HEARING', x: 1, y: 10, dir: 'down', clue: 'audición' },
+            { word: 'MEANS', x: 1, y: 11, dir: 'across', clue: 'medio' },
+            { word: 'SCOPE', x: 2, y: 7, dir: 'down', clue: 'alcance' },
+            { word: 'SPEECH', x: 2, y: 7, dir: 'across', clue: 'habla' },
+            { word: 'HIGH', x: 7, y: 7, dir: 'down', clue: 'alto' },
+            { word: 'THUS', x: 6, y: 10, dir: 'across', clue: 'por lo tanto' },
+            { word: 'LOW', x: 5, y: 6, dir: 'across', clue: 'bajo' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

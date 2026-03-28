@@ -277,23 +277,24 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'BEFORE', x: 1, y: 1, dir: 'across', clue: 'antes' },
-            { word: 'AFTER', x: 3, y: 3, dir: 'across', clue: 'después' },
-            { word: 'TURNON', x: 5, y: 5, dir: 'across', clue: 'encender' },
-            { word: 'TAKESPLACE', x: 7, y: 7, dir: 'across', clue: 'tiene lugar' },
-            { word: 'DONE', x: 9, y: 9, dir: 'across', clue: 'hecho' },
-            { word: 'BUILDERS', x: 11, y: 11, dir: 'across', clue: 'constructores' },
-            { word: 'SHAPE', x: 13, y: 13, dir: 'across', clue: 'forma' },
-            { word: 'HOW', x: 15, y: 15, dir: 'across', clue: 'cómo' },
-            { word: 'TOGETHER', x: 17, y: 17, dir: 'across', clue: 'juntos' },
-            { word: 'BECAUSEOFTHIS', x: 19, y: 19, dir: 'across', clue: 'por esta causa' },
-            { word: 'ISBUILT', x: 21, y: 21, dir: 'across', clue: 'es construido' },
-            { word: 'TEAMWORK', x: 23, y: 23, dir: 'across', clue: 'trabajo en equipo' }
+            { word: 'BECAUSEOFTHIS', x: 1, y: 5, dir: 'across', clue: 'por esta causa' },
+            { word: 'TAKESPLACE', x: 6, y: 1, dir: 'down', clue: 'tiene lugar' },
+            { word: 'TEAMWORK', x: 5, y: 10, dir: 'across', clue: 'trabajo en equipo' },
+            { word: 'TOGETHER', x: 11, y: 3, dir: 'down', clue: 'juntos' },
+            { word: 'BUILDERS', x: 3, y: 7, dir: 'across', clue: 'constructores' },
+            { word: 'ISBUILT', x: 10, y: 6, dir: 'down', clue: 'es construido' },
+            { word: 'BEFORE', x: 3, y: 7, dir: 'down', clue: 'antes' },
+            { word: 'AFTER', x: 1, y: 11, dir: 'across', clue: 'después' },
+            { word: 'SHAPE', x: 5, y: 9, dir: 'down', clue: 'forma' },
+            { word: 'DONE', x: 2, y: 13, dir: 'across', clue: 'hecho' },
+            { word: 'TURNON', x: 6, y: 1, dir: 'across', clue: 'encender' },
+            { word: 'HOW', x: 1, y: 1, dir: 'across', clue: 'cómo' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

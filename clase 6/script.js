@@ -275,21 +275,22 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'SUBJECTS', x: 1, y: 1, dir: 'across', clue: 'materias, disciplinas' },
-            { word: 'FIELD', x: 3, y: 3, dir: 'across', clue: 'campo' },
-            { word: 'WAY', x: 5, y: 5, dir: 'across', clue: 'modo' },
-            { word: 'GROW', x: 7, y: 7, dir: 'across', clue: 'crecer' },
-            { word: 'ENVIRONMENTAL', x: 9, y: 9, dir: 'across', clue: 'medioambiental' },
-            { word: 'SOUNDSCAPE', x: 11, y: 11, dir: 'across', clue: 'paisaje sonoro' },
-            { word: 'DEAF', x: 13, y: 13, dir: 'across', clue: 'sordo/a' },
-            { word: 'HEARING', x: 15, y: 15, dir: 'across', clue: 'escucha' },
-            { word: 'LISTENING', x: 17, y: 17, dir: 'across', clue: 'escucha atenta' },
-            { word: 'SOURCE', x: 19, y: 19, dir: 'across', clue: 'fuente' }
+            { word: 'ENVIRONMENTAL', x: 1, y: 5, dir: 'across', clue: 'medioambiental' },
+            { word: 'SOUNDSCAPE', x: 6, y: 1, dir: 'down', clue: 'paisaje sonoro' },
+            { word: 'SUBJECTS', x: 6, y: 1, dir: 'across', clue: 'materias, disciplinas' },
+            { word: 'HEARING', x: 12, y: 3, dir: 'down', clue: 'escucha' },
+            { word: 'LISTENING', x: 10, y: 1, dir: 'down', clue: 'escucha atenta' },
+            { word: 'SOURCE', x: 13, y: 1, dir: 'down', clue: 'fuente' },
+            { word: 'FIELD', x: 2, y: 5, dir: 'across', clue: 'campo' },
+            { word: 'GROW', x: 12, y: 9, dir: 'across', clue: 'crecer' },
+            { word: 'WAY', x: 15, y: 9, dir: 'down', clue: 'modo' },
+            { word: 'DEAF', x: 1, y: 1, dir: 'across', clue: 'sordo/a' }
         ];
 
-        const GRID_SIZE = 20;
+        const GRID_SIZE = 15;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 25px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);
