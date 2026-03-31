@@ -1,5 +1,5 @@
 const VOCABULARY = [
-    { word: 'a site survey', meaning: 'encuesta', category: 'default' },
+    { word: 'site survey', meaning: 'evaluación del sitio', category: 'default' },
     { word: 'so that', meaning: 'de manera que', category: 'default' },
     { word: 'measures', meaning: 'medidas', category: 'default' },
     { word: 'approaches', meaning: 'enfoques', category: 'default' },
@@ -278,7 +278,7 @@ function initCrossword() {
             { word: 'SUBMITAREPORT', x: 10, y: 2, dir: 'down', clue: 'entregar un informe' },
             { word: 'APPROACHES', x: 7, y: 9, dir: 'across', clue: 'enfoques' },
             { word: 'STUDIOSUITE', x: 11, y: 5, dir: 'down', clue: 'monoambiente' },
-            { word: 'ASITESURVEY', x: 1, y: 5, dir: 'across', clue: 'encuesta' },
+            { word: 'SITESURVEY', x: 1, y: 5, dir: 'across', clue: 'evaluación del sitio' },
             { word: 'MEASURES', x: 5, y: 2, dir: 'down', clue: 'medidas' },
             { word: 'AVAILABLE', x: 1, y: 5, dir: 'down', clue: 'disponible' },
             { word: 'SOTHAT', x: 8, y: 8, dir: 'across', clue: 'de manera que' },
@@ -287,8 +287,12 @@ function initCrossword() {
 
         const GRID_SIZE = 25;
         gridEl.style.display = 'grid';
-        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 30px)`;
-        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, 30px)`;
+        gridEl.style.gridTemplateColumns = `repeat(${GRID_SIZE}, minmax(10px, 30px))`;
+        gridEl.style.gridTemplateRows = `repeat(${GRID_SIZE}, minmax(10px, 30px))`;
+        gridEl.style.gap = '1px';
+        gridEl.style.width = 'fit-content';
+        gridEl.style.margin = '0 auto';
+        gridEl.style.overflowX = 'auto';
         gridEl.innerHTML = '';
         cluesEl.innerHTML = '';
         updateStars('score-crossword', 0, 1);

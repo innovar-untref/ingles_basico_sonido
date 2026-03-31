@@ -1,16 +1,15 @@
 const VOCABULARY = [
-    { word: 'easy', meaning: 'fácil', category: 'default' },
-    { word: 'later', meaning: 'más tarde', category: 'default' },
-    { word: 'few', meaning: 'pocos/as', category: 'default' },
-    { word: 'available', meaning: 'disponible', category: 'default' },
-    { word: 'unavailable', meaning: 'no disponible', category: 'default' },
-    { word: 'never', meaning: 'nunca', category: 'default' },
-    { word: 'such as', meaning: 'tales como', category: 'default' },
-    { word: 'for', meaning: 'para', category: 'default' },
+    { word: 'pleasant', meaning: 'agradable', category: 'default' },
+    { word: 'facilities', meaning: 'instalaciones', category: 'default' },
+    { word: 'properties', meaning: 'propiedades', category: 'default' },
+    { word: 'should', meaning: 'debería', category: 'default' },
+    { word: 'ensure', meaning: 'asegurar', category: 'default' },
+    { word: 'mistaken', meaning: 'errónea', category: 'default' },
+    { word: 'within', meaning: 'dentro de', category: 'default' },
+    { word: 'unless', meaning: 'a menos que', category: 'default' },
     { word: 'may', meaning: 'puede que', category: 'default' },
-    { word: 'each', meaning: 'cada', category: 'default' },
-    { word: 'once', meaning: 'una vez', category: 'default' },
-    { word: 'so far', meaning: 'hasta ahora', category: 'default' }
+    { word: 'smear', meaning: 'dispersar', category: 'default' },
+    { word: 'unappealing', meaning: 'poco atractivo', category: 'default' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initNavigation();
     initDragAndDrop();
-    
+
     initCrossword();
     initAILab();
     initHangman();
@@ -40,7 +39,7 @@ function initAILab() {
     const modal = document.getElementById('prompt-modal');
     const modalTitle = document.getElementById('modal-word-title');
     const content = document.getElementById('prompt-content');
-    
+
     const copyBtn = document.getElementById('copy-prompt');
 
     grid.innerHTML = '';
@@ -90,8 +89,8 @@ Instrucción final: Saluda como 'Docente de Inglés de Innovar UNTREF', presenta
         grid.appendChild(card);
     });
 
-    
-    
+
+
 
     copyBtn.onclick = () => {
         navigator.clipboard.writeText(content.textContent).then(() => {
@@ -134,14 +133,14 @@ function initNavigation() {
 function showFeedback(msg, type = 'success') {
     const activeSection = document.querySelector('.activity-section.active');
     if (!activeSection) return;
-    
+
     const toast = activeSection.querySelector('.toast');
     if (!toast) return;
 
     toast.textContent = msg;
     toast.style.backgroundColor = type === 'success' ? 'var(--success-color)' : 'var(--error-color)';
     toast.classList.add('active');
-    
+
     setTimeout(() => toast.classList.remove('active'), 3000);
 }
 
@@ -226,17 +225,17 @@ function initFillBlanks() {
 
     function buildFill() {
         const sentences = [
-            `1. I have good technical <input class="fill-input" data-answer="skills">.`,
-            `2. The shop sells common <input class="fill-input" data-answer="goods">.`,
-            `3. We need more <input class="fill-input" data-answer="resources"> to work.`,
-            `4. The computer is <input class="fill-input" data-answer="available"> now.`,
-            `5. My computer <input class="fill-input" data-answer="improves"> with new RAM.`,
-            `6. Finishing the project is a big <input class="fill-input" data-answer="accomplishment">.`,
-            `7. There are new <input class="fill-input" data-answer="developments"> in tech.`,
-            `8. I like pizza; <input class="fill-input" data-answer="likewise">, I like pasta.`,
-            `9. The boss <input class="fill-input" data-answer="allowed"> a break.`,
-            `10. My PC <input class="fill-input" data-answer="worsens"> <input class="fill-input" data-answer="due to"> the virus.`,
-            `11. I don't know <input class="fill-input" data-answer="whether or"> it's A or B.`
+            `1. A <input class="fill-input" data-answer="pleasant"> acoustic environment is essential for a mixing room.`,
+            `2. The recording <input class="fill-input" data-answer="facilities"> at the studio are state-of-the-art.`,
+            `3. Different acoustic materials have unique absorptive <input class="fill-input" data-answer="properties">.`,
+            `4. You <input class="fill-input" data-answer="should"> check the signal levels before recording.`,
+            `5. High-quality cables <input class="fill-input" data-answer="ensure"> a clear transmission of audio.`,
+            `6. A <input class="fill-input" data-answer="mistaken"> interpretation of the frequency response can lead to poor mixes.`,
+            `7. Noise levels must be kept <input class="fill-input" data-answer="within"> acceptable limits.`,
+            `8. Do not increase the gain <input class="fill-input" data-answer="unless"> the signal is too weak.`,
+            `9. Certain frequencies <input class="fill-input" data-answer="may"> cause unwanted resonance in the room.`,
+            `10. Low-quality audio compression can <input class="fill-input" data-answer="smear"> the transients of the sound.`,
+            `11. Excessive distortion can make the audio sound <input class="fill-input" data-answer="unappealing"> to the listener.`
         ];
         container.innerHTML = `<div class="fill-paragraph">${sentences.join(' ')}</div>`;
         const allAnswers = [...new Set(container.querySelectorAll('.fill-input'))].map(input => input.dataset.answer);
@@ -277,18 +276,17 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'UNAVAILABLE', x: 1, y: 5, dir: 'across', clue: 'no disponible' },
-            { word: 'AVAILABLE', x: 3, y: 5, dir: 'down', clue: 'disponible' },
-            { word: 'SUCHAS', x: 6, y: 10, dir: 'across', clue: 'tales como' },
-            { word: 'LATER', x: 10, y: 12, dir: 'across', clue: 'más tarde' },
-            { word: 'NEVER', x: 13, y: 9, dir: 'down', clue: 'nunca' },
-            { word: 'EASY', x: 11, y: 5, dir: 'down', clue: 'fácil' },
-            { word: 'EACH', x: 10, y: 6, dir: 'across', clue: 'cada' },
-            { word: 'ONCE', x: 12, y: 4, dir: 'down', clue: 'una vez' },
-            { word: 'SOFAR', x: 11, y: 10, dir: 'down', clue: 'hasta ahora' },
-            { word: 'MAY', x: 2, y: 10, dir: 'across', clue: 'puede que' },
-            { word: 'FOR', x: 11, y: 13, dir: 'across', clue: 'para' },
-            { word: 'FEW', x: 1, y: 1, dir: 'across', clue: 'pocos/as' }
+            { word: 'UNAPPEALING', x: 0, y: 3, dir: 'across', clue: 'poco atractivo' },
+            { word: 'FACILITIES', x: 8, y: 0, dir: 'down', clue: 'instalaciones' },
+            { word: 'MISTAKEN', x: 1, y: 0, dir: 'down', clue: 'errónea' },
+            { word: 'WITHIN', x: 0, y: 5, dir: 'across', clue: 'dentro de' },
+            { word: 'ENSURE', x: 5, y: 3, dir: 'down', clue: 'asegurar' },
+            { word: 'PROPERTIES', x: 1, y: 8, dir: 'across', clue: 'propiedades' },
+            { word: 'SHOULD', x: 3, y: 7, dir: 'down', clue: 'debería' },
+            { word: 'UNLESS', x: 10, y: 5, dir: 'down', clue: 'a menos que' },
+            { word: 'PLEASANT', x: 0, y: 1, dir: 'across', clue: 'agradable' },
+            { word: 'MAY', x: 0, y: 10, dir: 'across', clue: 'puede que' },
+            { word: 'SMEAR', x: 10, y: 8, dir: 'down', clue: 'dispersar' }
         ];
 
         const GRID_SIZE = 15;

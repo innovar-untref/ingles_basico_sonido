@@ -605,6 +605,9 @@ h3 {
     align-items: flex-start;
     justify-content: center;
     margin-top: 1rem;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1rem;
 }
 
 .grid-layout {

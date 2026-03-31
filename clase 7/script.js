@@ -1,14 +1,14 @@
 const VOCABULARY = [
-    { word: 'before', meaning: 'antes', category: 'default' },
-    { word: 'after', meaning: 'después', category: 'default' },
-    { word: 'whether', meaning: 'si con', category: 'default' },
-    { word: 'both', meaning: 'ambos', category: 'default' },
-    { word: 'later', meaning: 'más tarde', category: 'default' },
-    { word: 'within', meaning: 'dentro de', category: 'default' },
-    { word: 'nearby', meaning: 'cerca', category: 'default' },
-    { word: 'most', meaning: 'mayoría', category: 'default' },
-    { word: 'instead of', meaning: 'en lugar de', category: 'default' },
-    { word: 'was known', meaning: 'era conocido', category: 'default' }
+    { word: 'field', meaning: 'campo', category: 'default' },
+    { word: 'broad', meaning: 'amplio', category: 'default' },
+    { word: 'rather', meaning: 'bastante', category: 'default' },
+    { word: 'improve', meaning: 'mejorar', category: 'default' },
+    { word: 'however', meaning: 'sin embargo', category: 'default' },
+    { word: 'keep in mind', meaning: 'tener en cuenta', category: 'default' },
+    { word: 'measure', meaning: 'medida', category: 'default' },
+    { word: 'ears', meaning: 'orejas/oído', category: 'default' },
+    { word: 'quiet', meaning: 'calmo', category: 'default' },
+    { word: 'purpose', meaning: 'propósito', category: 'default' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -87,9 +87,6 @@ Instrucción final: Saluda como 'Docente de Inglés de Innovar UNTREF', presenta
 
         grid.appendChild(card);
     });
-
-    
-    
 
     copyBtn.onclick = () => {
         navigator.clipboard.writeText(content.textContent).then(() => {
@@ -224,19 +221,18 @@ function initFillBlanks() {
 
     function buildFill() {
         const sentences = [
-            `1. I have good technical <input class="fill-input" data-answer="skills">.`,
-            `2. The shop sells common <input class="fill-input" data-answer="goods">.`,
-            `3. We need more <input class="fill-input" data-answer="resources"> to work.`,
-            `4. The computer is <input class="fill-input" data-answer="available"> now.`,
-            `5. My computer <input class="fill-input" data-answer="improves"> with new RAM.`,
-            `6. Finishing the project is a big <input class="fill-input" data-answer="accomplishment">.`,
-            `7. There are new <input class="fill-input" data-answer="developments"> in tech.`,
-            `8. I like pizza; <input class="fill-input" data-answer="likewise">, I like pasta.`,
-            `9. The boss <input class="fill-input" data-answer="allowed"> a break.`,
-            `10. My PC <input class="fill-input" data-answer="worsens"> <input class="fill-input" data-answer="due to"> the virus.`,
-            `11. I don't know <input class="fill-input" data-answer="whether or"> it's A or B.`
+            `1. The **field** of sound engineering is constantly evolving. <input class="fill-input" data-answer="field">`,
+            `2. Technical skills are **broad** and varied in this industry. <input class="fill-input" data-answer="broad">`,
+            `3. I would **rather** use a dynamic microphone for this recording. <input class="fill-input" data-answer="rather">`,
+            `4. We need to **improve** the acoustic treatment of the studio. <input class="fill-input" data-answer="improve">`,
+            `5. **However**, the budget is limited this year. <input class="fill-input" data-answer="however">`,
+            `6. **Keep in mind** that sample rate affects audio quality. <input class="fill-input" data-answer="keep in mind">`,
+            `7. We must **measure** the frequency response of the speakers. <input class="fill-input" data-answer="measure">`,
+            `8. Protect your **ears** when working with high sound pressure levels. <input class="fill-input" data-answer="ears">`,
+            `9. This room is very **quiet**, making it ideal for voiceovers. <input class="fill-input" data-answer="quiet">`,
+            `10. What is the **purpose** of using a compressor in this track? <input class="fill-input" data-answer="purpose">`
         ];
-        container.innerHTML = `<div class="fill-paragraph">${sentences.join(' ')}</div>`;
+        container.innerHTML = `<div class="fill-paragraph">${sentences.join('<br>')}</div>`;
         const allAnswers = [...new Set(container.querySelectorAll('.fill-input'))].map(input => input.dataset.answer);
         wordBankEl.innerHTML = allAnswers.sort(() => Math.random() - 0.5).map(w => `<span class="bank-word">${w}</span>`).join('');
         updateStars('score-fill', 0, 1);
@@ -275,16 +271,16 @@ function initCrossword() {
 
     function buildCrossword() {
         const crosswordData = [
-            { word: 'INSTEADOF', x: 1, y: 5, dir: 'across', clue: 'en lugar de' },
-            { word: 'WASKNOWN', x: 6, y: 1, dir: 'down', clue: 'era conocido' },
-            { word: 'WHETHER', x: 1, y: 1, dir: 'across', clue: 'si (condicional)' },
-            { word: 'BEFORE', x: 8, y: 1, dir: 'down', clue: 'antes' },
-            { word: 'AFTER', x: 6, y: 2, dir: 'across', clue: 'después' },
-            { word: 'WITHIN', x: 6, y: 7, dir: 'across', clue: 'dentro de' },
-            { word: 'NEARBY', x: 11, y: 7, dir: 'down', clue: 'cerca' },
-            { word: 'BOTH', x: 8, y: 1, dir: 'across', clue: 'ambos' },
-            { word: 'LATER', x: 10, y: 1, dir: 'down', clue: 'más tarde' },
-            { word: 'MOST', x: 1, y: 8, dir: 'across', clue: 'mayoría' }
+            { word: 'IMPROVE', x: 2, y: 5, dir: 'across', clue: 'mejorar' },
+            { word: 'PURPOSE', x: 4, y: 2, dir: 'down', clue: 'propósito' },
+            { word: 'BROAD', x: 6, y: 3, dir: 'down', clue: 'amplio' },
+            { word: 'RATHER', x: 8, y: 1, dir: 'down', clue: 'bastante' },
+            { word: 'FIELD', x: 2, y: 7, dir: 'across', clue: 'campo' },
+            { word: 'HOWEVER', x: 6, y: 4, dir: 'across', clue: 'sin embargo' },
+            { word: 'MEASURE', x: 5, y: 0, dir: 'down', clue: 'medida' },
+            { word: 'EARS', x: 3, y: 4, dir: 'down', clue: 'orejas/oídos' },
+            { word: 'QUIET', x: 1, y: 1, dir: 'across', clue: 'calmo' },
+            { word: 'KEEPINMIND', x: 0, y: 9, dir: 'across', clue: 'tener en cuenta' }
         ];
 
         const GRID_SIZE = 15;
